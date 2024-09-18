@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "bmewburn.vscode-intelephense-client",
+        "bradlc.vscode-tailwindcss",
+        "christian-kohler.npm-intellisense",
+        "onecentlin.laravel-extension-pack",
+        "Vue.volar"
+    ]
+}
