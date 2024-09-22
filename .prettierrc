@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": ["./resources/js/**/*.vue"],
+      "options": {
+        "printWidth": 100,
+        "quoteProps": "consistent",
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-classnames"]
+      }
+    }
+  ]
+}
