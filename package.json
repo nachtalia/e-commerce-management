@@ -23,11 +23,13 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.5",
+    "chart.js": "^4.4.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.441.0",
     "radix-vue": "^1.9.5",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vue-chartjs": "^5.3.1"
   }
 }
