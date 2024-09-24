@@ -29,6 +29,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/inventory', [ProfileController::class, 'inventory'])->name('inventory');
 Route::get('/setting', [ProfileController::class, 'setting'])->name('setting');
 Route::get('/user', [ProfileController::class, 'user'])->name('user');
-Route::get('/products', [AuthenticatedController::class, 'products'])->name('products');
 
 require __DIR__ . '/auth.php';
