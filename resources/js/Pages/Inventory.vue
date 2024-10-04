@@ -20,7 +20,11 @@ import TableCell from '@/Components/ui/table/TableCell.vue'
 import TableHead from '@/Components/ui/table/TableHead.vue'
 import TableHeader from '@/Components/ui/table/TableHeader.vue'
 import TableRow from '@/Components/ui/table/TableRow.vue'
+import TextInput from '@/Components/TextInput.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
+import Dropdown from '@/Components/Dropdown.vue'
+import DropdownMenuTrigger from '@/Components/ui/dropdown-menu/DropdownMenuTrigger.vue'
+import InputLabel from '@/Components/InputLabel.vue'
 
 const invoices = ref([
    { id: 'INV001', description: 'Paid', price: '$250.00', stock: 'Credit Card', category: 'Badge' },
@@ -125,6 +129,23 @@ const openModal = () => {
 const closeModal = () => {
    showModal.value = false
 }
+
+const router = useRouter()
+
+const form = ref({
+   description: '',
+   price: '',
+   stock: '',
+   category: ''
+})
+
+const submit = async () => {
+   try {
+      await router.post('/post', form.value)
+   } catch (error) {
+      console.error('Error submitting forms:', error)
+   }
+}
 </script>
 
 <template>
@@ -222,50 +243,38 @@ const closeModal = () => {
             <h3 class="text-lg font-semibold p-4">Create New Invoice</h3>
             <form class="p-4">
                <div class="mt-4">
-                  <label for="description" class="block text-sm font-medium text-gray-700"
-                     >Description</label
-                  >
-                  <input
+                  <InputLabel for="description">Description</InputLabel>
+                  <TextInput
                      id="description"
+v-model="form.description"
                      type="text"
-                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500"
+                     class="w-full"
                   />
                </div>
                <div class="mt-4">
-                  <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                  <input
-                     id="price"
-                     type="text"
-                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500"
-                  />
+                  <InputLabel for="price">Price</InputLabel>
+                  <TextInput id="price" v-model="form.price" type="text" class="mt-1 w-full" />
                </div>
                <div class="mt-4">
-                  <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
-                  <input
+                  <InputLabel for="stock">Stock</InputLabel>
+                  <TextInput
                      id="stock"
+v-model="form.stock"
                      type="text"
-                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500"
+                     class="mt-1 block w-full"
                   />
                </div>
                <div class="mt-4">
-                  <label for="category" class="block text-sm font-medium text-gray-700"
-                     >Category</label
-                  >
-                  <input
+                  <InputLabel for="Category">Category</InputLabel>
+                  <TextInput
                      id="category"
+v-model="category"
                      type="text"
-                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500"
+                     class="mt-1 block w-full"
                   />
                </div>
                <div class="mt-4">
-                  <button
-                     type="button"
-                     class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br
-                        focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg
-                        text-sm px-5 py-2.5 text-center me-2 mb-2"
-                  >
-                     Submit
-                  </button>
+                  <PrimaryButton type="button">Submit</PrimaryButton>
                </div>
             </form>
          </template>
