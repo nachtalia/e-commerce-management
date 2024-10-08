@@ -90,10 +90,10 @@ export default {
          const items = []
          if (this.showEdges && this.totalPages > 1) {
             items.push({ type: 'page', value: 1 })
-            if (this.currentPage > 2) items.push({ type: 'ellipsis', index: 1 })
+            if (this.currentPage > 1) items.push({ type: 'ellipsis', index: 1 })
          }
          for (
-            let i = Math.max(2, this.currentPage - this.siblingCount);
+            let i = Math.max(1, this.currentPage - this.siblingCount);
             i <= Math.min(this.totalPages - 1, this.currentPage + this.siblingCount);
             i++
          ) {
@@ -110,6 +110,11 @@ export default {
       goToPage(page) {
          this.currentPage = Math.max(1, Math.min(page, this.totalPages))
          this.$emit('page-changed', this.currentPage)
+      }
+   },
+   watch: {
+      defaultPage(newValue) {
+         this.currentPage = newValue
       }
    }
 }

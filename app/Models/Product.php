@@ -29,7 +29,7 @@ class Product extends Model
       return $this->belongsTo(Category::class);
    }
 
-   // 1-1 relationship with Inventory
+   // 1-1 relationship with Inventory  
    public function inventory()
    {
       return $this->hasOne(Inventory::class);

@@ -61,14 +61,14 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function inventory(){
-        return Inertia::render('Inventory');
-    }
 
-    public function setting(){
+
+    public function setting()
+    {
         return Inertia::render('Setting');
     }
-    public function user(){
+    public function user()
+    {
         return Inertia::render('Users');
     }
 }

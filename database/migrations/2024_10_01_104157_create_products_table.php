@@ -34,7 +34,7 @@ return new class extends Migration
 
       Schema::create('inventory', function (Blueprint $table) {
          $table->mediumInteger('id')->unsigned()->primary()->autoIncrement();
-         $table->smallInteger('stock')->unsigned()->default(0);
+         $table->Integer('stock')->unsigned()->default(0);
          $table->mediumInteger('product_id')->unsigned();
          $table->timestamps();
 
